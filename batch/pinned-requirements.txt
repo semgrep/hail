@@ -150,7 +150,7 @@ protobuf==7.36.2
     #   google-api-core
     #   googleapis-common-protos
     #   proto-plus
-pyasn1==0.6.4
+pyasn1==0.6.5
     # via
     #   -c batch/../gear/pinned-requirements.txt
     #   -c batch/../hail/python/pinned-requirements.txt
