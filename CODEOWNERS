@@ -1,50 +1,5 @@
-# CODEOWNERS file for Hail
-# This file defines who should review changes to different parts of the codebase
+# CODEOWNERS: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# Owners are Okta-synced GitHub teams. Membership is managed in Okta, not GitHub.
+# Replaces the upstream CODEOWNERS, whose owners are not members of the semgrep org.
 
-## Anything that could impact production infrastructure: require review from the appsec team
-
-# Infrastructure directory - could impact production infrastructure
-/infra/gcp-broad/ @hail-is/appsec
-
-# Service directories that run in production
-/auth/ @hail-is/appsec
-/batch/ @hail-is/appsec
-/gateway/ @hail-is/appsec
-/internal-gateway/ @hail-is/appsec
-/bootstrap-gateway/ @hail-is/appsec
-/ci/ @hail-is/appsec
-/monitoring/ @hail-is/appsec
-/prometheus/ @hail-is/appsec
-/grafana/ @hail-is/appsec
-/letsencrypt/ @hail-is/appsec
-
-# Base docker image used by the services
-/docker/hail-ubuntu/ @hail-is/appsec
-
-# Other directories with indirect production impact:
-/admin-pod/ @hail-is/appsec
-/gear/ @hail-is/appsec
-/hail/python/hailtop/ @hail-is/appsec
-/letsencrypt/ @hail-is/appsec
-/tls/ @hail-is/appsec
-/website/ @hail-is/appsec
-/web_common/ @hail-is/appsec
-
-
-# Files at the top level of the repository:
-/CODEOWNERS @hail-is/appsec
-/build.yaml @hail-is/appsec
-/Makefile @hail-is/appsec
-
-# Test directories: override the service-level appsec rules above.
-# Pure test changes don't touch production code and don't need appsec review.
-/auth/test/
-/batch/test/
-/ci/test/
-/gear/test/
-/monitoring/test/
-/hail/python/hailtop/test/
-
-# hailctl is a client-only CLI tool — no deployed service imports from it.
-# Override the broad hailtop rule so client-only CLI changes don't need appsec review.
-/hail/python/hailtop/hailctl/
+* @semgrep/security-research
